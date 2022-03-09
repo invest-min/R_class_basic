@@ -1,4 +1,4 @@
-#Environment
+# Environment
 
 a <- 1
 b <- 2
@@ -10,7 +10,7 @@ ls()
 rm(list=ls()) #Console -> Ctrl+L
 ls()
 
-#Package
+# Package
 
 install.packages("tidyverse")
 library(tidyverse)
