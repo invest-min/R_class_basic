@@ -1,3 +1,8 @@
+# Working Directory
+
+getwd()
+setwd("C:/R")
+
 # Environment
 
 a <- 1
@@ -12,6 +17,8 @@ ls()
 
 # Package
 
+.libPaths()
+
 install.packages("tidyverse")
 library(tidyverse)
 search()
@@ -25,3 +32,8 @@ data(package = "tidyverse")
 
 detach(package:tidyverse)
 search()
+
+# Save and Quit
+
+save.image()
+q()
