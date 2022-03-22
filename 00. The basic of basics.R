@@ -10,6 +10,7 @@ b <- 2
 c <- 3
 
 ls()
+ls.str()
 rm(a)
 ls()
 rm(list=ls()) #Console -> Ctrl+L
