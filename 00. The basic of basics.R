@@ -11,8 +11,15 @@ c <- 3
 
 ls()
 ls.str()
+
 rm(a)
 ls()
+
+save(b, file = "b.rda")
+rm(b)
+load("b.rda")
+ls()
+
 rm(list=ls()) #Console -> Ctrl+L
 ls()
 
