@@ -120,4 +120,19 @@ sort(v)
 sort(v)[rank(v)]
 sort(v, decreasing=T)
 
+# Set
+
+x <- 1:7
+y <- 4:10
+
+union(x, y)
+intersect(x, y)
+setdiff(x, y)
+setdiff(y, x)
+
+is.element(3, x)
+is.element(3, y)
+is.element(intersect(x, y), x)
+is.element(setdiff(y, x), x)
+
 rm(list=ls())
