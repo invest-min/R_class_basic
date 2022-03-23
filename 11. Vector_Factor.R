@@ -38,11 +38,12 @@ r6 <- rep(1:3, length=5)
 
 rm(list=ls())
 
-# Statistics
+# functions
 
 v <- 1:10
 
 sum(v)
+prod(v)
 mean(v)
 median(v)
 var(v)
@@ -57,6 +58,33 @@ quantile(v, .75)
 IQR(v)
 
 summary(v)
+
+cumsum(v)
+cumprod(v)
+cummin(v)
+cummax(v)
+
+diff(v)
+diff(v, lag=2)
+
+library(dplyr)
+lag(v)
+lag(v, 2)
+lead(v)
+lead(v, 2)
+
+v <- c(1, 2, 3, 4, NA)
+sum(v)
+prod(v)
+mean(v)
+
+sum(v, na.rm=T)
+sum(na.omit(v))
+
+v <- c(NA, NA, NA, NA, NA)
+sum(v, na.rm=T)
+prod(v, na.rm=T)
+mean(v, na.rm=T)
 
 # factor < as.factor
 
@@ -83,5 +111,13 @@ v[1:3]
 
 which(v<=5)
 v[which(v<=5)]
+
+v <- c(5,6,4)
+rank(v)
+order(v)
+
+sort(v)
+sort(v)[rank(v)]
+sort(v, decreasing=T)
 
 rm(list=ls())
