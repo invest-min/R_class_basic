@@ -98,6 +98,16 @@ detach(package:lattice)
 .libPaths()
 
 search()
+install.packages("dplyr")
+library(dplyr)
+search()
+
+ls("package:dplyr")
+data(package = "dplyr")
+
+detach(package:dplyr)
+search()
+
 install.packages("tidyverse")
 library(tidyverse)
 search()
@@ -105,11 +115,39 @@ search()
 ls("package:tidyverse")
 data(package = "tidyverse")
 
-ls("package:dplyr")
-data(package = "dplyr")
-
 detach(package:tidyverse)
 search()
+
+# Help
+
+help(package = "base")
+help(mean)
+?mean
+args(mean)
+example(mean)
+
+help(package = "datasets")
+help(cars)
+?cars
+
+help(package = "lattice")
+help(xyplot)
+?xyplot
+args(xypot)
+example(xyplot)
+
+help(package = "ggplot2")
+help(ggplot)
+?ggplot
+help(ggplot, package = "ggplot2")
+
+help.search("ggplot")
+??ggplot
+
+help.start()
+
+RSiteSearch("ggplot") # https://search.r-project.org
+# https://rseek.org
 
 # Save and Quit
 
