@@ -15,6 +15,7 @@ abs(-4)
 exp(1)
 log(2.72)
 log10(10)
+log2(2)
 log(9, 3)
 
 pi
@@ -25,11 +26,12 @@ tan(pi/4)
 factorial(3)
 choose(3, 2)
 
-ceiling(-3.14)
-floor(-3.14)
-trunc(-3.14)
-round(-3.14)
-round(-3.14, 1)
+pi
+ceiling(pi)
+floor(pi)
+trunc(pi)
+round(pi, 2)
+signif(pi, 2)
 
 -3.14 == 3.14
 -3.14 != 3.14
