@@ -64,6 +64,9 @@ class(as.Date("1970-01-01"))
 mode(as.Date("1970-01-01"))
 
 class(T)
+as.integer(T)
+class(as.integer(T))
+mode(as.integer(T))
 
 class(lm)
 lm(dist ~ speed, cars)
