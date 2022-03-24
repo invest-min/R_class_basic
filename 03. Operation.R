@@ -70,6 +70,8 @@ paste0(c("a", "b", "c"))
 paste(c("a", "b", "c"), collapse="")
 paste(letters, collapse="")
 paste(LETTERS, collapse="")
+paste(month.name, collapse=" ")
+paste(month.abb, collapse=" ")
 
 strsplit("abc/ABC", split="/")
 

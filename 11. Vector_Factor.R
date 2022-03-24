@@ -1,4 +1,4 @@
-# c
+# Concatenate
 
 c1 <- c(1, 2, 3)
 c2 <- c(c1, 4, 5, 6)
@@ -17,7 +17,7 @@ c7 <- c(T, F, T)
 sum(c7)
 table(c7)
 
-# seq, rep
+# Sequence, Repeat
 
 s1 <- seq(10)
 s2 <- seq(1, 10)
@@ -38,7 +38,7 @@ r6 <- rep(1:3, length=5)
 
 rm(list=ls())
 
-# functions
+# Functions
 
 v <- 1:10
 
@@ -86,31 +86,45 @@ sum(v, na.rm=T)
 prod(v, na.rm=T)
 mean(v, na.rm=T)
 
-# factor < as.factor
-
-v <- c("M", "M", "F", "F", "M")
-f <- factor(v)
-
-summary(v)
-summary(f)
-
-f1 <- factor(v, order=T)
-f2 <- factor(v, order=T, level=c("M", "F"))
-
-f3 <- factor("a", levels = c("a", "b")) # Levels: a b
-factor(f3) # Levels: a
-as.factor(f3) # Levels: a b
-
-rm(list=ls())
-
 # Index
 
 v <- seq(1, 10, by=2)
 v[3]
 v[1:3]
+v[c(1, 1, 5, 3)]
+
+i <- 5:1
+v[i]
+
+v[-1]
+v[-length(v)]
+
+v[1] <- 9
+v
+
+v[6] <- 11
+v
+
+v[10] <- 11
+v
+
+v[c(7, 8, 9)] <- 10
+v
+
+v<=5
+v[v<=5]
+
+v[v %% 2 == 0]
+
+seq_along(v)
+v[seq_along(v) %% 3 == 0]
 
 which(v<=5)
 v[which(v<=5)]
+which.min(v)
+v[which.min(v)]
+which.max(v)
+v[which.max(v)]
 
 v <- c(5,6,4)
 rank(v)
@@ -119,6 +133,11 @@ order(v)
 sort(v)
 sort(v)[rank(v)]
 sort(v, decreasing=T)
+
+names(v) <- c("a", "b", "c")
+v
+v[1]
+v["a"]
 
 # Set
 
@@ -134,5 +153,61 @@ is.element(3, x)
 is.element(3, y)
 is.element(intersect(x, y), x)
 is.element(setdiff(y, x), x)
+
+# Factor
+
+v <- c("M", "M", "F", "F", "M")
+f <- factor(v)
+
+v
+f
+summary(v)
+summary(f)
+as.numeric(f)
+
+f <- factor(v, level=c("M", "F", "U"))
+f
+summary(f)
+table(f)
+
+levels(f)
+levels(f) <- c("M", "F", "D")
+f
+nlevels(f)
+
+factor(f)
+as.factor(f)
+
+f <- factor(v, order=T)
+f
+f <- factor(v, order=T, level=c("M", "F"))
+f
+
+v <- c(1, 2, 2, 1, 1)
+f <- factor(v, levels=c(1, 2), labels=c("M", "F"))
+f
+
+v <- c("a", "b", "b", "c", "a", "c", "c", "c", "a", "c")
+table(v)
+f <- factor(v)
+table(f)
+
+library(forcats)
+
+fct_inorder(f)
+fct_infreq(f)
+
+fct_relevel(f, "c", "b", "a")
+fct_relevel(f, "c")
+fct_relevel(f, "c", after=1)
+fct_relevel(f, "a", after=Inf)
+
+y <- c(1, 3, 2, 4, 4, 5, 3, 3, 6, 7)
+
+fct_reorder(v, y) # median
+fct_reorder(v, y, .fun=mean) # mean
+fct_reorder(v, y, .fun=mean, .desc=T)
+
+fct_recode(v, z="a", z="c")
 
 rm(list=ls())
