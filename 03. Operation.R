@@ -5,24 +5,6 @@
 3 * 3
 3 / 3
 
-1:3 + 1:3
-1:3 - 1:3
-1:3 * 1:3
-1:3 / 1:3
-
-1:3 + 10
-1:3 + 1:5
-
-matrix(1:6, 2) + matrix(1:6, 2)
-matrix(1:6, 2) - matrix(1:6, 2)
-matrix(1:6, 2) * matrix(1:6, 2)
-matrix(1:6, 2) / matrix(1:6, 2)
-
-array(1:12, c(2, 3, 2)) + array(1:12, c(2, 3, 2))
-array(1:12, c(2, 3, 2)) - array(1:12, c(2, 3, 2))
-array(1:12, c(2, 3, 2)) * array(1:12, c(2, 3, 2))
-array(1:12, c(2, 3, 2)) / array(1:12, c(2, 3, 2))
-
 3/2
 3%/%2
 3%%2
@@ -46,48 +28,50 @@ tan(pi/4)
 factorial(3)
 choose(3, 2)
 
-pi
 ceiling(pi)
+ceiling(-pi)
 floor(pi)
+floor(-pi)
 trunc(pi)
+trunc(-pi)
 round(pi, 2)
 signif(pi, 2)
 
-# Character
+1:3 + 1:3
+1:3 - 1:3
+1:3 * 1:3
+1:3 / 1:3
 
-nchar("abc")
-length("abc")
-nchar(c("a", "bb", "ccc"))
-length(c("a", "bb", "ccc"))
+1:3 + 10
+1:3 + 1:5
 
-toupper("abc")
-tolower("ABC")
+matrix(1:6, 2) + matrix(1:6, 2)
+matrix(1:6, 2) - matrix(1:6, 2)
+matrix(1:6, 2) * matrix(1:6, 2)
+matrix(1:6, 2) / matrix(1:6, 2)
 
-paste("a", "b", "c")
-paste("a", "b", "c", sep="/")
-paste("a", "b", "c", sep="")
-paste0("a", 1:3)
+matrix(1:6, 2) + 10
+matrix(1:6, 2) + matrix(1:6, 3)
 
-paste0(c("a", "b", "c"), c("A", "B", "C"))
-paste0(c("a", "b", "c"))
+array(1:12, c(2, 3, 2)) + array(1:12, c(2, 3, 2))
+array(1:12, c(2, 3, 2)) - array(1:12, c(2, 3, 2))
+array(1:12, c(2, 3, 2)) * array(1:12, c(2, 3, 2))
+array(1:12, c(2, 3, 2)) / array(1:12, c(2, 3, 2))
 
-paste(c("a", "b", "c"), collapse="")
-paste(letters, collapse="")
-paste(LETTERS, collapse="")
-paste(month.name, collapse=" ")
-paste(month.abb, collapse=" ")
+array(1:12, c(2, 3, 2)) + 10
 
-strsplit("abc/ABC", split="/")
-unlist(strsplit("abc/ABC", split="/"))
+df1 <- data.frame(x=c(1, 2, 3), y=c(4, 5, 6))
+df2 <- data.frame(v=c(4, 5, 6), w=c(1, 2, 3))
 
-strsplit("I am happy", split=" ")
-strsplit("I am happy", split="")
+df1 + df2
+df1 - df2
+df1 * df2
+df1 / df2
 
-substr("abcabc", 1, 2)
-substr("abcabc", nchar("abcabc") - 1, nchar("abcabc"))
+df1 <- data.frame(x=c(1, 2, 3), y=c("a", "b", "c"))
+df1 <- data.frame(v=c(4, 5, 6), w=c("d", "e", "f"))
 
-sub("a", "A", "abcabc")
-gsub("a", "A", "abcabc")
+df1 + df1
 
 # Logical
 

@@ -76,6 +76,11 @@ df[1,1]
 df$x
 df$x[1]
 
+df$a + df$b
+df$a - df$b
+df$a * df$b
+df$a / df$b
+
 df$name <- rownames(df)
 rownames(df) <- NULL
 df
@@ -92,8 +97,6 @@ merge(df1, df2)
 merge(df1, df2, by.x="name", by.y="n")
 
 # With, Within, Attach/Detach
-
-df
 
 df$a * df$b
 with(df, a * b)
@@ -150,27 +153,5 @@ tb <- df %>%
   rownames_to_column(var="n") %>% 
   as_tibble()
 tb
-
-rm(list=ls())
-
-# Operations
-
-df1 <- data.frame(x=c(1, 2, 3), y=c(4, 5, 6))
-df2 <- data.frame(v=c(4, 5, 6), w=c(1, 2, 3))
-
-df1 + df2
-df1 - df2
-df1 * df2
-df1 / df2
-
-df1$x + df2$v
-df1$x - df2$v
-df1$x * df2$v
-df1$x / df2$v
-
-df3 <- data.frame(x=c(1, 2, 3), y=c("a", "b", "c"))
-df4 <- data.frame(v=c(4, 5, 6), w=c("d", "e", "f"))
-
-df3 + df4
 
 rm(list=ls())
