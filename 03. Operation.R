@@ -56,6 +56,10 @@ signif(pi, 2)
 # Character
 
 nchar("abc")
+length("abc")
+nchar(c("a", "bb", "ccc"))
+length(c("a", "bb", "ccc"))
+
 toupper("abc")
 tolower("ABC")
 
@@ -74,8 +78,14 @@ paste(month.name, collapse=" ")
 paste(month.abb, collapse=" ")
 
 strsplit("abc/ABC", split="/")
+unlist(strsplit("abc/ABC", split="/"))
 
-substr("abcabc", 2, 5)
+strsplit("I am happy", split=" ")
+strsplit("I am happy", split="")
+
+substr("abcabc", 1, 2)
+substr("abcabc", nchar("abcabc") - 1, nchar("abcabc"))
+
 sub("a", "A", "abcabc")
 gsub("a", "A", "abcabc")
 
