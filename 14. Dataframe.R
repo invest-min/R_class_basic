@@ -96,6 +96,34 @@ names(df2) <- c("n", "b")
 merge(df1, df2)
 merge(df1, df2, by.x="name", by.y="n")
 
+# Duplicated, Complete Cases
+
+(df <- data.frame(x=c("a", "b", "c", "c", "d", NA),
+                  y=c(1, 2, 3, 3, 4, 5)))
+duplicated(df)
+df[!duplicated(df),]
+which(duplicated(df))
+
+complete.cases(df)
+df[complete.cases(df),]
+
+# Subset
+
+df
+subset(df, subset = a>=15)
+subset(df, subset = a>=15, select = c("x", "y", "a"))
+subset(df, subset = a>=15 & ab1 >= 220)
+subset(df, subset = a>=mean(a))
+
+# Sample
+
+sample(df, 5, replace=T)
+sample(df, 5)
+
+set.seed(1234)
+i <- sample(nrow(df), 5)
+df[i,]
+
 # With, Within, Attach/Detach
 
 df$a * df$b
@@ -104,7 +132,7 @@ with(df, a * b)
 with(df, {
   ab <- a * b
   plot(a, ab)
-  })
+})
 ab
 
 with(df, {
@@ -132,14 +160,6 @@ y
 
 detach(df)
 search()
-
-# Subset
-
-df
-subset(df, subset = a>=15)
-subset(df, subset = a>=15, select = c("x", "y", "a"))
-subset(df, subset = a>=15 & ab1 >= 220)
-subset(df, subset = a>=mean(a))
 
 # tibble
 

@@ -38,54 +38,6 @@ r6 <- rep(1:3, length=5)
 
 rm(list=ls())
 
-# Functions
-
-v <- 1:10
-
-sum(v)
-prod(v)
-mean(v)
-median(v)
-var(v)
-sd(v)
-
-range(v)
-diff(range(v))
-min(v)
-max(v)
-quantile(v, .25)
-quantile(v, .75)
-IQR(v)
-
-summary(v)
-
-cumsum(v)
-cumprod(v)
-cummin(v)
-cummax(v)
-
-diff(v)
-diff(v, lag=2)
-
-library(dplyr)
-lag(v)
-lag(v, 2)
-lead(v)
-lead(v, 2)
-
-v <- c(1, 2, 3, 4, NA)
-sum(v)
-prod(v)
-mean(v)
-
-sum(v, na.rm=T)
-sum(na.omit(v))
-
-v <- c(NA, NA, NA, NA, NA)
-sum(v, na.rm=T)
-prod(v, na.rm=T)
-mean(v, na.rm=T)
-
 # Index
 
 v <- seq(1, 10, by=2)
@@ -139,7 +91,23 @@ v
 v[1]
 v["a"]
 
-# Set
+# Duplicated
+
+v <- c(1, 2, 3, 3, 4, 4, 5)
+duplicated(v)
+v[duplicated(v)]
+which(duplicated(v))
+v[which(duplicated(v))]
+
+# Cut, Set
+
+cut(v, c(0, 3, 5))
+table(cut(v, c(0, 3, 5)))
+cut(v, c(0, 3, 5), labels=c("a", "b"))
+table(cut(v, c(0, 3, 5), labels=c("a", "b")))
+
+cut(v, 2)
+summary(cut(v, 2))
 
 x <- 1:7
 y <- 4:10
@@ -153,6 +121,62 @@ is.element(3, x)
 is.element(3, y)
 is.element(intersect(x, y), x)
 is.element(setdiff(y, x), x)
+
+# Sample
+
+sample(1:10, 9)
+sample(1:10, 9, replace=T)
+sample(1:10, 9, replace=T)
+sample(1:10, 9, replace=T, set.seed(1234))
+sample(1:10, 9, replace=T, set.seed(1234))
+
+# Functions
+
+v <- 1:10
+
+sum(v)
+prod(v)
+mean(v)
+median(v)
+var(v)
+sd(v)
+
+range(v)
+diff(range(v))
+min(v)
+max(v)
+quantile(v, .25)
+quantile(v, .75)
+IQR(v)
+
+summary(v)
+
+cumsum(v)
+cumprod(v)
+cummin(v)
+cummax(v)
+
+diff(v)
+diff(v, lag=2)
+
+library(dplyr)
+lag(v)
+lag(v, 2)
+lead(v)
+lead(v, 2)
+
+v <- c(1, 2, 3, 4, NA)
+sum(v)
+prod(v)
+mean(v)
+
+sum(v, na.rm=T)
+sum(na.omit(v))
+
+v <- c(NA, NA, NA, NA, NA)
+sum(v, na.rm=T)
+prod(v, na.rm=T)
+mean(v, na.rm=T)
 
 # Factor
 
