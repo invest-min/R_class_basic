@@ -26,13 +26,34 @@ slice(df, 6:10)
 slice(df, n())
 slice(df, (n()-4):n())
 
-# Select, Rename
+df %>% slice(5:10)
+df %>% slice(-(5:10))
+
+df %>% slice(1)
+df %>% slice(n())
+df %>% slice_head(n=3)
+df %>% slice_tail(n=3)
+
+df %>% slice_sample(n=3)
+df %>% slice_sample(n=3, replace=T)
+df %>% slice_sample(prop=.3)
+df %>% slice_sample(prop=.3, replace=T)
+
+df %>% slice_min(price, n=3)
+df %>% slice_max(price, n=3)
+df %>% slice_min(price, prop=.3)
+df %>% slice_max(price, prop=.3)
+
+# Select, Relocate, Rename
 
 select(df, a, b, c)
 select(df, c, b, a)
 select(df, -a)
 select(df, -a, -b)
 select(df, x=a, y=b, z=c)
+
+df %>% relocate(rent)
+df %>% relocate(gfa, .after=price)
 
 rename(df, x=a, y=b, z=c)
 
@@ -49,6 +70,16 @@ summarise(df, mean=mean(b),
           median=median(b),
           sd=sd(b),
           N=n())
+
+df %>% transmute(price=.3025*price,
+                 size=if_else(gfa>=mean(gfa), "big", "small"))
+
+cumsum(df$price)
+rank(df$price)
+
+df %>% pull(1)
+df %>% pull(-1)
+df %>% pull(price)
 
 # Sample
 
@@ -77,6 +108,38 @@ df %>%
 
 df %>% head
 df$b %>% mean
+
+# Join, Bind
+
+df1 <- data.frame(i=c("a", "b", "c"),
+                  n=c("d", "e", "f"),
+                  x=c(1, 2, 3))
+
+df2 <- data.frame(i=c("a", "b", "d"),
+                  m=c("g", "h", "i"),
+                  y=c(4, 5, 6))
+
+df1 %>% inner_join(df2, by="i")   #???????? ????
+
+df1 %>% left_join(df2, by="i")   #df1 ???? ????
+
+df1 %>% right_join(df2, by="i")   #df2 ???? ????
+
+df1 %>% full_join(df2, by="i")   #???? ???? ????
+
+semi_join(df1, df1)   #df1???? df2?? ?ִ? ?ุ ????. ???? ?ƴ?
+anti_join(df1, df2)   #df1???? df2?? ?ִ? ??�� ??��. ???? ?ƴ?
+
+df1 <- data.frame(i=c("a", "b", "c"),
+                  n=c("d", "e", "f"),
+                  x=c(1, 2, 3))
+
+df2 <- data.frame(j=c("a", "b", "c"),
+                  m=c("g", "h", "i"),
+                  y=c(4, 5, 6))
+
+bind_cols(df1, df2)
+bind_rows(df1, df2)
 
 
 library(tidyr)

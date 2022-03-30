@@ -11,8 +11,8 @@ tolower("ABC")
 paste("a", "b", "c")
 paste("a", "b", "c", sep="/")
 paste("a", "b", "c", sep="")
-paste0("a", 1:3)
 
+paste0("a", 1:3)
 paste0(c("a", "b", "c"), c("A", "B", "C"))
 paste0(c("a", "b", "c"))
 
@@ -57,6 +57,11 @@ str_length(t)
 str_c("a", "b", "c", sep=" ")
 str_c(t, 1:6, sep=" ")
 str_c(t, collapse=" ")
+
+str_dup("a", 3)
+str_dup("a", 1:3)
+str_dup(c("a", "b"), 3)
+str_dup(c("a", "b"), c(1,3))
 
 str_split(t, " ")
 unlist(str_split(t, " "))

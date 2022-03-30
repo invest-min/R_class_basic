@@ -56,4 +56,10 @@ while (i <= 25) {
 
 for (i in seq(5, 25, by=5)) print(i)
 
+v <- vector("double", 5)
+for(i in seq_along(v)) {
+  v[i] <- mean(rnorm(10))
+}
+v
+
 rm(list=ls())

@@ -101,5 +101,23 @@ fn(100, FUN=signif, digits=3)
 fn(100, FUN=floor)
 fn(100, FUN=ceiling)
 
+fn <- function(a, b, c) {
+  if(a==0) {
+    roots <- c("Not Quadratic Equation")
+  } else {
+    d <- b^2 - 4*a*c
+    if(d>0) {
+      roots <- c((-b-sqrt(d))/(2*a), (-b+sqrt(d))/(2*a))
+    } else if(d==0) {
+      roots <- -b/(2*a)
+    } else {
+      roots <- c("No Real Root")
+    }
+  }
+  return(roots)
+}
+
+fn(2, -5, -6)
+
 ls()
 rm(list=ls())
