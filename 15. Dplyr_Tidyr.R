@@ -1,0 +1,115 @@
+library(dplyr)
+
+# Arrange
+
+df <- data.frame(a=1:10,
+                 b=seq(1, 100, length=10),
+                 c=sample(1:2, 10, replace=T, set.seed(1234)),
+                 d=sample(letters, 10))
+df
+
+arrange(df, c)
+arrange(df, c, d)
+arrange(df, c, desc(d))
+
+# Filter, Slice
+
+filter(df, c==1)
+subset(df, c==1)
+df[df$c==1,]
+
+filter(df, c==1, a>=7)
+filter(df, c==1 & a>=7)
+filter(df, c==1 | c==2)
+
+slice(df, 6:10)
+slice(df, n())
+slice(df, (n()-4):n())
+
+# Select, Rename
+
+select(df, a, b, c)
+select(df, c, b, a)
+select(df, -a)
+select(df, -a, -b)
+select(df, x=a, y=b, z=c)
+
+rename(df, x=a, y=b, z=c)
+
+# Mutate, Summarise
+
+mutate(df, e = a + b)
+transform(df, e = a + b)
+
+mutate(df, e = a + b, f = e/2)
+transform(df, e = a + b, f = e/2)
+
+summarise(df, mean(b), median(b), sd(b))
+summarise(df, mean=mean(b),
+          median=median(b),
+          sd=sd(b),
+          N=n())
+
+# Sample
+
+sample_n(df, 5)
+sample_n(df, 5, replace=T)
+
+sample_frac(df, .5)
+sample_frac(df, .5, replace=T)
+
+# Group_by
+
+group_by(df, c)
+
+df_group <- group_by(df, c)
+summarise(df_group, mean=mean(b),
+          median=median(b),
+          sd=sd(b),
+          N=n())
+
+df %>% 
+  group_by(c) %>% 
+  summarise(mean=mean(b),
+            median=median(b),
+            sd=sd(b),
+            N=n())
+
+df %>% head
+df$b %>% mean
+
+
+library(tidyr)
+
+# Pivot_longer, Pivot_wider
+
+df <- data.frame(i=c("a", "b", "c"),
+                 n=c("d", "e", "f"),
+                 y2010=c(1, 2, 3),
+                 y2020=c(4, 5, 6))
+
+df %>% pivot_longer(-c(i, n),
+                    names_to="year",
+                    values_to="value")
+
+df %>% pivot_longer(c("y2010", "y2020"),
+                    names_to="year",
+                    values_to="value")
+
+df <- df %>%
+  pivot_longer(contains("y"),
+               names_to="year",
+               names_prefix="y",
+               names_transform=list(year=as.integer),
+               values_to="value")
+df
+
+df %>% pivot_wider(names_from="year",
+                   values_from="value")
+
+# Separate, Unite
+
+df <- df %>% separate(year, c("y1", "y2"), sep=2)
+df
+df <- df %>% unite(year, y1, y2)
+df
