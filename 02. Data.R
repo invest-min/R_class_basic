@@ -1,4 +1,4 @@
-# Data Structure: Vector, Matrix, Arrary, Dataframe, List
+# Structure: Vector, Matrix, Arrary, Dataframe, List
 
 1
 1:6
@@ -21,6 +21,54 @@ data.frame(x=c(1, 2, 3), y=c("d", "e", "f"))
 list(1, "a", T)
 list(1:6, matrix(1:6, 2), array(1:12, c(1, 3, 2)))
 list(data.frame(x=c(1, 2, 3), y=c("d", "e", "f")), list(1, "a", T))
+
+# Transformation
+
+(v <- 1:6)
+is.vector(v)
+
+as.matrix(v)
+cbind(v)
+rbind(v)
+matrix(v, 2)
+
+as.list(v)
+list(v)
+
+as.data.frame(v)
+as.data.frame(rbind(v))
+as.data.frame(matrix(v, 2))
+
+(m <- matrix(v, 2))
+is.matrix(m)
+
+as.vector(m)
+as.list(m)
+as.data.frame(m)
+
+(l <- list(1:3, 4:6))
+is.list(l)
+
+as.vector(l)
+unlist(l)
+
+matrix(l)
+matrix(unlist(l), 2)
+
+as.data.frame(l)
+
+(df <- data.frame(x=1:3, y=4:6))
+is.data.frame(df)
+
+str(df[,1])
+str(df[1,])
+
+as.vector(df)
+as.vector(as.matrix(df))
+
+as.list(df)
+
+rm(list=ls())
 
 # Mode: numeric, character, logical, list, function
 
