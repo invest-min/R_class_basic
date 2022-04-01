@@ -37,17 +37,8 @@ ggplot(df, aes(x=f, fill=g)) +
   
 # Numeric_Category
 
-ggplot(df, aes(x=y, fill=f)) +
-  geom_density()
-
-ggplot(df, aes(x=y, fill=f)) +
-  geom_density(alpha=.5)
-
 ggplot(df, aes(x=f, y=y)) +
   geom_boxplot()
-
-ggplot(df, aes(x=f, y=y)) +
-  geom_boxplot(fill="salmon", color="dimgrey", size=1)
 
 ggplot(df, aes(x=f, y=y)) +
   geom_boxplot(fill="salmon", color="dimgrey", notch=T)
