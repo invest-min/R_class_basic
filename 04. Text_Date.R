@@ -53,6 +53,7 @@ library(stringr)
 t
 
 str_length(t)
+str_count(t)
 
 str_c("a", "b", "c", sep=" ")
 str_c(t, 1:6, sep=" ")
