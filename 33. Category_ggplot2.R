@@ -53,20 +53,61 @@ ggplot(df, aes(x=f, y=y)) +
   geom_boxplot(fill="salmon", color="dimgrey", notch=T)
 
 ggplot(df, aes(x=f, y=y)) +
-  geom_boxplot()+
+  geom_boxplot() +
   geom_point(size=3)
 
 ggplot(df, aes(x=f, y=y)) +
-  geom_boxplot()+
+  geom_boxplot() +
   geom_point(size=3, position="jitter")
 
 ggplot(df, aes(x=f, y=y)) +
-  geom_boxplot()+
+  geom_boxplot() +
   geom_point(size=3, alpha=.5, position="jitter")
 
 ggplot(df, aes(x=f, y=y)) +
-  geom_boxplot()+
+  geom_boxplot() +
   geom_point(size=3, alpha=.5, position="jitter") +
   geom_rug()
+
+# Facet
+
+ggplot(df, aes(y=y)) +
+  geom_boxplot() +
+  geom_rug() +
+  facet_wrap(~f)
+
+ggplot(df, aes(y=y)) +
+  geom_boxplot() +
+  geom_rug() +
+  facet_wrap(~f, nrow=3)
+
+ggplot(df, aes(x=y)) +
+  geom_density() +
+  geom_rug() +
+  facet_grid(f~g)
+
+ggplot(df, aes(x=y)) +
+  geom_density() +
+  geom_rug() +
+  facet_grid(g~f)
+
+ggplot(df, aes(x=y)) +
+  geom_density() +
+  geom_rug() +
+  facet_grid(f~.)
+
+ggplot(df, aes(x=y)) +
+  geom_density() +
+  geom_rug() +
+  facet_grid(.~f)
+
+ggplot(df, aes(x=y)) +
+  geom_density() +
+  geom_rug() +
+  facet_grid(f~.)
+
+ggplot(df, aes(x=x, y=y)) +
+  geom_point() +
+  facet_grid(f~g)
 
 rm(list=ls())
