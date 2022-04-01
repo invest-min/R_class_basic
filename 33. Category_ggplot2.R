@@ -1,0 +1,72 @@
+# Data
+
+x <- 1:100
+y <- sample(1:100, 100, replace=T, set.seed(1234))
+f <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(1234))
+g <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(4321))
+
+(df <- data.frame(x, y, f, g))
+
+library(ggplot2)
+
+# Category_Category
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar() +
+  labs(x="fff")
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar(position="stack") +
+  labs(x="fff")
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar(position="dodge") +
+  labs(x="fff")
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar(position="dodge2") +
+  labs(x="fff")
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar(position="fill") +
+  labs(x="fff")
+
+ggplot(df, aes(x=f, fill=g)) +
+  geom_bar(position="fill") +
+  labs(x="fff", y="proportion")
+  
+# Numeric_Category
+
+ggplot(df, aes(x=y, fill=f)) +
+  geom_density()
+
+ggplot(df, aes(x=y, fill=f)) +
+  geom_density(alpha=.5)
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot()
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot(fill="salmon", color="dimgrey", size=1)
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot(fill="salmon", color="dimgrey", notch=T)
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot()+
+  geom_point(size=3)
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot()+
+  geom_point(size=3, position="jitter")
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot()+
+  geom_point(size=3, alpha=.5, position="jitter")
+
+ggplot(df, aes(x=f, y=y)) +
+  geom_boxplot()+
+  geom_point(size=3, alpha=.5, position="jitter") +
+  geom_rug()
+
+rm(list=ls())
