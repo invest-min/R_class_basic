@@ -1,13 +1,27 @@
 # Numeric
 
-x <- 1:20
+(x <- 1:20)
+
+summary(x)
+summary(x)[1]
+summary(x)["Min."]
+
+cut(x, 4)
+table(cut(x, 4))
+cut(x, c(0, 5, 10, 15, 20))
+table(cut(x, c(0, 5, 10, 15, 20)))
+
 plot(x)
 
 boxplot(x)
 hist(x)
 plot(density(x))
 
-y <- x^2
+(y <- x^2)
+
+table(cut(x, 4), cut(y, 4))
+table(cut(x, c(0, 5, 10, 15, 20)), cut(y, c(0, 100, 200, 300, 400)))
+
 plot(x, y)
 plot(y~x)
 
@@ -16,7 +30,9 @@ plot(df)
 
 # Categorical
 
-f <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(1234))
+(f <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(1234)))
+
+table(f)
 plot(f)
 
 barplot(table(f))
@@ -25,7 +41,27 @@ pie(table(f))
 plot(f, y)
 plot(y~f)
 
-g <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(4321))
+(g <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(4321)))
+
+table(f, g)
+
+margin.table(table(f, g))
+margin.table(table(f, g), margin=1)
+margin.table(table(f, g), margin=2)
+
+addmargins(table(f, g))
+addmargins(table(f, g), margin=1)
+addmargins(table(f, g), margin=2)
+
+prop.table(table(f, g))
+addmargins(prop.table(table(f, g)))
+prop.table(table(f, g), margin=1)
+addmargins(prop.table(table(f, g), margin=1))
+prop.table(table(f, g), margin=2)
+addmargins(prop.table(table(f, g), margin=2))
+
+xtabs(~ f + g)
+
 plot(f, g)
 barplot(table(f, g))
 
