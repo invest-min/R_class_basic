@@ -61,3 +61,5 @@ table(df$a)
 table(df$a, df$b)
 
 table(cut(df$y, 3))
+
+rm(list=ls())

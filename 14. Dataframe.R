@@ -105,7 +105,6 @@ subset(df, subset = a>=15 & b <= 13)
 subset(df, subset = a>=mean(a))
 
 split(df, c)
-
 unstack(df, c)
 unstack(data.frame(df$a, df$c))
 
@@ -130,6 +129,8 @@ complete.cases(df)
 df[complete.cases(df),]
 
 # With, Within, Attach/Detach
+
+(df <- data.frame(a=1:5, b=6:10))
 
 df$a * df$b
 with(df, a * b)

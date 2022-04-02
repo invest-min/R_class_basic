@@ -119,5 +119,4 @@ fn <- function(a, b, c) {
 
 fn(2, -5, -6)
 
-ls()
 rm(list=ls())

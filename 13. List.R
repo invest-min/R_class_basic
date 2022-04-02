@@ -6,7 +6,7 @@
 
 c(l1, l2, l3)
 
-l <- list()
+(l <- list())
 l[[1]] <- 1
 l[[2]] <- "a"
 l[[3]] <- T
@@ -25,7 +25,7 @@ names(l)
 str(l)
 l
 
-l4 <- list(1, 2, 3)
+(l4 <- list(1, 2, 3))
 mean(l4)
 mean(unlist(l4))
 

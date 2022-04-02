@@ -55,3 +55,5 @@ reg <- function(df, i) {
 b <- boot(df, reg, R=10000)
 b
 boot.ci(b, index=2)
+
+rm(list=ls())

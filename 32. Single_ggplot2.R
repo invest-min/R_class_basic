@@ -1,11 +1,9 @@
 # Data
 
-x <- 1:100
 y <- sort(sample(1:100, 100, replace=T, set.seed(1234)))
 f <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(1234))
-g <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(4321))
 
-(df <- data.frame(x, y, f, g))
+(df <- data.frame(y, f))
 
 library(ggplot2)
 
@@ -32,10 +30,6 @@ ggplot(df, aes(x=y)) +
   geom_density(fill="skyblue", color="darkgrey", size=1) +
   labs(x="YYY",
        title="Title", subtitle="Subtitle", caption="Caption")
-
-ggplot(df, aes(x=y)) +
-  geom_histogram() +
-  geom_density()
 
 ggplot(df, aes(x=y)) +
   geom_boxplot()

@@ -39,10 +39,10 @@ df %>% slice_sample(n=3, replace=T)
 df %>% slice_sample(prop=.3)
 df %>% slice_sample(prop=.3, replace=T)
 
-df %>% slice_min(price, n=3)
-df %>% slice_max(price, n=3)
-df %>% slice_min(price, prop=.3)
-df %>% slice_max(price, prop=.3)
+df %>% slice_min(b, n=3)
+df %>% slice_max(b, n=3)
+df %>% slice_min(b, prop=.3)
+df %>% slice_max(b, prop=.3)
 
 # Select, Relocate, Rename
 
@@ -52,8 +52,8 @@ select(df, -a)
 select(df, -a, -b)
 select(df, x=a, y=b, z=c)
 
-df %>% relocate(rent)
-df %>% relocate(gfa, .after=price)
+df %>% relocate(c)
+df %>% relocate(b, .after=c)
 
 rename(df, x=a, y=b, z=c)
 
@@ -70,16 +70,6 @@ summarise(df, mean=mean(b),
           median=median(b),
           sd=sd(b),
           N=n())
-
-df %>% transmute(price=.3025*price,
-                 size=if_else(gfa>=mean(gfa), "big", "small"))
-
-cumsum(df$price)
-rank(df$price)
-
-df %>% pull(1)
-df %>% pull(-1)
-df %>% pull(price)
 
 # Sample
 
@@ -119,16 +109,16 @@ df2 <- data.frame(i=c("a", "b", "d"),
                   m=c("g", "h", "i"),
                   y=c(4, 5, 6))
 
-df1 %>% inner_join(df2, by="i")   #???????? ????
+df1 %>% inner_join(df2, by="i")
 
-df1 %>% left_join(df2, by="i")   #df1 ???? ????
+df1 %>% left_join(df2, by="i")
 
-df1 %>% right_join(df2, by="i")   #df2 ???? ????
+df1 %>% right_join(df2, by="i")
 
-df1 %>% full_join(df2, by="i")   #???? ???? ????
+df1 %>% full_join(df2, by="i")
 
-semi_join(df1, df1)   #df1???? df2?? ?ִ? ?ุ ????. ???? ?ƴ?
-anti_join(df1, df2)   #df1???? df2?? ?ִ? ??�� ??��. ???? ?ƴ?
+semi_join(df1, df1)
+anti_join(df1, df2)
 
 df1 <- data.frame(i=c("a", "b", "c"),
                   n=c("d", "e", "f"),
@@ -172,7 +162,7 @@ df %>% pivot_wider(names_from="year",
 
 # Separate, Unite
 
-df <- df %>% separate(year, c("y1", "y2"), sep=2)
-df
-df <- df %>% unite(year, y1, y2)
-df
+(df <- df %>% separate(year, c("y1", "y2"), sep=2))
+(df <- df %>% unite(year, y1, y2))
+
+rm(list=ls())

@@ -1,11 +1,10 @@
 # Data
 
-x <- 1:100
 y <- sample(1:100, 100, replace=T, set.seed(1234))
 f <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(1234))
 g <- sample(factor(c("a", "b", "c")), 100, replace=T, set.seed(4321))
 
-(df <- data.frame(x, y, f, g))
+(df <- data.frame(y, f, g))
 
 library(ggplot2)
 
@@ -96,9 +95,5 @@ ggplot(df, aes(x=y)) +
   geom_density() +
   geom_rug() +
   facet_grid(f~.)
-
-ggplot(df, aes(x=x, y=y)) +
-  geom_point() +
-  facet_grid(f~g)
 
 rm(list=ls())
