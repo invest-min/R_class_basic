@@ -1,13 +1,29 @@
-# Working Directory
+# Data, Function
 
-getwd()
-setwd("C:/R")
+cars
+head(cars)
+tail(cars)
+help(cars)
 
-# Environment
+mean
+mean(cars$speed)
+mean(cars$dist)
+help(mean)
+
+# Work Space
+
+1
+2
+3
 
 a <- 1
 b <- 2
 c <- 3
+
+a
+b
+c
+a; b; c
 
 ls()
 ls.str()
@@ -15,17 +31,35 @@ ls.str()
 rm(a)
 ls()
 
+data(cars)
+ls()
+
+# Working Directory
+
+getwd()
+
+setwd("C:/R")
+getwd()
+
 save(b, file = "b.rda")
 rm(b)
+ls()
+
 load("b.rda")
 ls()
 
-rm(list=ls()) #Console: Ctrl+L
-ls()
+setwd("C:/R/Class/R_class_basic")
+getwd()
+
+save.image()
+
+# Package: Install -> Library
+# Library: System(Base, Recommended), User
 
 # Package: System Library_Base
 
 library()
+
 Sys.getlocale()
 Sys.setlocale("LC_ALL", "English")
 library()
@@ -45,59 +79,50 @@ data(package = "base")
 ls("package:datasets")
 data(package = "datasets")
 
-help(mean)
-x <- c(1, 2, 3)
-mean(x)
-
-mean <- function(x) x+1
-mean(x)
-rm(mean)
-
 search()
 
+mean <- function(x) x+1
+mean(cars$speed)
+cars$speed
+rm(mean)
+
 data()
-data(package = .packages(all.available = TRUE))
-
-data(cars)
-help(cars)
-rm(cars)
-
-head(cars)
-tail(cars)
-str(cars)
 
 # Package: System Library_Recommended
 
-xyplot(dist ~ speed, data = cars)
+xyplot(dist ~ speed, cars)
 help(xyplot)
 search()
 
 library(lattice)
 search()
-xyplot(dist ~ speed, data = cars)
+
+xyplot(dist ~ speed, cars)
 
 detach(package:lattice)
-xyplot(dist ~ speed, data = cars)
+search()
 
-lattice::xyplot(dist ~ speed, data = cars)
+xyplot(dist ~ speed, cars)
+
+lattice::xyplot(dist ~ speed, cars)
 
 data(singer)
 help(singer)
 
-data(package = "lattice")
-data(singer, package = "lattice")
-rm(singer)
-
 library(lattice)
 data(singer)
 rm(singer)
+
 detach(package:lattice)
+data(singer)
+
+data(singer, package = "lattice")
+data(package = "lattice")
 
 # Package: User Library
 
 .libPaths()
 
-search()
 install.packages("dplyr")
 library(dplyr)
 search()
@@ -112,10 +137,10 @@ install.packages("tidyverse")
 library(tidyverse)
 search()
 
-ls("package:tidyverse")
-data(package = "tidyverse")
-
 detach(package:tidyverse)
+search()
+
+detach(package:dplyr)
 search()
 
 # Help
@@ -126,31 +151,27 @@ help(mean)
 args(mean)
 example(mean)
 
-help(package = "datasets")
-help(cars)
-?cars
-
 help(package = "lattice")
 help(xyplot)
 ?xyplot
 args(xypot)
 example(xyplot)
 
-help(package = "ggplot2")
-help(ggplot)
-?ggplot
-help(ggplot, package = "ggplot2")
+help(package = "dplyr")
+help(filter)
+?filter
+help(filter, package = "dplyr")
 
-help.search("ggplot")
-??ggplot
+help.search("dplyr")
+??dplyr
 
 help.start()
 
-RSiteSearch("ggplot") # https://search.r-project.org
+RSiteSearch("dplyr")
+# https://search.r-project.org
 # https://rseek.org
 
-# Save and Quit
-
 rm(list=ls())
-save.image()
+# Clear Console: Ctrl+L
+
 q()

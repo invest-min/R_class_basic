@@ -1,26 +1,30 @@
-# Structure: Vector, Matrix, Arrary, Dataframe, List
+# Structure: Vector, Matrix, Arrary, List, Dataframe
 
 1
 1:6
 c(1, 2, 3, 4, 5, 6)
 c("a", "b", "c", "d", "e", "f")
 c(T, F, T, T, F, F)
+c(1, 2, 3, "d", "e", "f")
+str(c(1, 2, 3, 4, 5, 6))
 
 matrix(c(1, 2, 3, 4, 5, 6), 2)
-matrix(c("a", "b", "c", "d", "e", "f"), 2)
+matrix(c("a", "b", "c", "d", "e", "f"), 3)
 matrix(c(T, F, T, T, F, F), 2)
-matrix(c(1, 2, 3, "d", "e", "f"), 2)
+matrix(c(1, 2, 3, "d", "e", "f"), 3)
+str(matrix(c("a", "b", "c", "d", "e", "f"), 3))
 
-array(1:12, 2)
-array(1:12, c(2, 3))
 array(1:12, c(2, 3, 2))
+str(array(1:12, c(2, 3, 2)))
+
+list(matrix(1:6, 2), matrix(7:12, 2))
+list(1, "a", T)
+list(1:6, matrix(1:6, 2), array(1:12, c(1, 3, 2)))
+str(list(1:6, matrix(1:6, 2), array(1:12, c(1, 3, 2))))
 
 data.frame(c(1, 2, 3), c("d", "e", "f"))
 data.frame(x=c(1, 2, 3), y=c("d", "e", "f"))
-
-list(1, "a", T)
-list(1:6, matrix(1:6, 2), array(1:12, c(1, 3, 2)))
-list(data.frame(x=c(1, 2, 3), y=c("d", "e", "f")), list(1, "a", T))
+str(data.frame(x=c(1, 2, 3), y=c("d", "e", "f")))
 
 # Transformation
 
@@ -60,6 +64,7 @@ as.data.frame(l)
 (df <- data.frame(x=1:3, y=4:6))
 is.data.frame(df)
 
+str(df)
 str(df[,1])
 str(df[1,])
 
@@ -67,8 +72,6 @@ as.vector(df)
 as.vector(as.matrix(df))
 
 as.list(df)
-
-rm(list=ls())
 
 # Mode: numeric, character, logical, list, function
 
@@ -88,35 +91,34 @@ mode(mean)
 
 # Class: numeric, integer, character, factor, Date, logical, lm...
 
+mode(1)
 class(1)
-as.integer(1)
-class(as.integer(1))
 mode(as.integer(1))
+class(as.integer(1))
 
-class("a")
-as.character(1)
-class(as.character(1))
 mode(as.character(1))
+class(as.character(1))
 
-as.factor("a")
-as.integer(as.factor("a"))
-as.numeric(as.factor("a"))
-class(as.factor("a"))
+mode("a")
+class("a")
 mode(as.factor("a"))
+class(as.factor("a"))
 
+mode("1970-01-01")
 class("1970-01-01")
-as.Date("1970-01-01")
-as.integer(as.Date("1970-01-01"))
-as.integer(as.Date("1970-01-02"))
-class(as.Date("1970-01-01"))
 mode(as.Date("1970-01-01"))
+class(as.Date("1970-01-01"))
 
+mode(T)
 class(T)
-as.integer(T)
-class(as.integer(T))
 mode(as.integer(T))
+class(as.integer(T))
 
-class(lm)
 lm(dist ~ speed, cars)
-class(lm(dist ~ speed, cars))
+
+mode(lm)
+class(lm)
 mode(lm(dist ~ speed, cars))
+class(lm(dist ~ speed, cars))
+
+rm(list=ls())
