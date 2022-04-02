@@ -4,15 +4,15 @@
 1:3
 matrix(1:6, 2)
 array(1:12, c(2, 3, 2))
-data.frame(x=1:3, y=4:6)
 list(x=1:3, y=4:6)
+data.frame(x=1:3, y=4:6)
 
 print(1)
 print(1:3)
 print(matrix(1:6, 2))
 print(array(1:12, c(2, 3, 2)))
-print(data.frame(x=1:3, y=4:6))
 print(list(x=1:3, y=4:6))
+print(data.frame(x=1:3, y=4:6))
 
 print(pi, digits=3)
 print(matrix(pi:(pi+5), 2), digits=3)

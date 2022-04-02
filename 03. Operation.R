@@ -69,9 +69,9 @@ df1 * df2
 df1 / df2
 
 df1 <- data.frame(x=c(1, 2, 3), y=c("a", "b", "c"))
-df1 <- data.frame(v=c(4, 5, 6), w=c("d", "e", "f"))
+df2 <- data.frame(v=c(4, 5, 6), w=c("d", "e", "f"))
 
-df1 + df1
+df1 + df2
 
 # Logical
 
@@ -96,3 +96,5 @@ sqrt(2)^2
 sqrt(2)^2 == 2
 identical(sqrt(2)^2, 2)
 all.equal(sqrt(2)^2, 2)
+
+rm(list=ls())
