@@ -1,6 +1,33 @@
 # Numeric
 
-(x <- 1:20)
+(x <- c(1:20, 6:15, 10, NA, 12))
+
+mean(x)
+mean(x, na.rm=T)
+
+var(x)
+var(x, na.rm=T)
+
+sd(x)
+sd(x, na.rm=T)
+sqrt(var(x, na.rm=T))
+
+median(x)
+median(x, na.rm=T)
+
+range(x)
+range(x, na.rm=T)
+diff(range(x, na.rm=T))
+
+quantile(x)
+quantile(x, na.rm=T)
+
+quantile(x, .25, na.rm=T)
+quantile(x, .75, na.rm=T)
+quantile(x, c(.25, .75), na.rm=T)
+diff(quantile(x, c(.25, .75), na.rm=T))
+IQR(x)
+IQR(x, na.rm=T)
 
 summary(x)
 summary(x)[1]
@@ -16,6 +43,7 @@ plot(x)
 boxplot(x)
 hist(x)
 plot(density(x))
+plot(density(x, na.rm=T))
 
 (y <- x^2)
 
@@ -26,22 +54,30 @@ plot(x, y)
 plot(y~x)
 
 (df <- data.frame(x, y))
+summary(df)
 plot(df)
 
 # Categorical
 
-(f <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(1234)))
+(f <- sample(factor(c("a", "b", "c")), 33, replace=T, set.seed(1234)))
+
+summary(f)
 
 table(f)
-plot(f)
+max(table(f))
+f[max(table(f))]
 
+plot(f)
 barplot(table(f))
 pie(table(f))
+
+tapply(y, f, mean)
+tapply(y, f, mean, na.rm=T)
 
 plot(f, y)
 plot(y~f)
 
-(g <- sample(factor(c("a", "b", "c")), 20, replace=T, set.seed(4321)))
+(g <- sample(factor(c("a", "b", "c")), 33, replace=T, set.seed(4321)))
 
 table(f, g)
 
@@ -63,11 +99,13 @@ addmargins(prop.table(table(f, g), margin=2))
 xtabs(~ f + g)
 
 plot(f, g)
-barplot(table(f, g))
 
 # Multi
 
 (df <- data.frame(df, f, g))
+
+summary(df)
+
 plot(df)
 pairs(df, panel=panel.smooth)
 
@@ -76,8 +114,10 @@ pairs(df, panel=panel.smooth)
 plot(y)
 
 (yt <- ts(y))
-plot(yt)
 
+str(yt)
+
+plot(yt)
 plot.ts(y)
 
 # Add point and line
