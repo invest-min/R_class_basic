@@ -1,4 +1,4 @@
-# Structure: Vector, Matrix, Arrary, List, Dataframe
+# Structure: Vector, Matrix, Array, List, Dataframe
 
 1
 1:6

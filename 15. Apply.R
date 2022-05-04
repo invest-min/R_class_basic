@@ -1,6 +1,21 @@
-# Apply
+# col and row
 
 (m <- matrix(1:20, 4))
+
+colMeans(m)
+colSums(m)
+rowMeans(m)
+rowSums(m)
+
+(df <- as.data.frame(m))
+
+colMeans(df)
+colSums(df)
+rowMeans(df)
+rowSums(df)
+
+# Apply
+
 apply(m, 1, max)
 apply(m, 2, min)
 
